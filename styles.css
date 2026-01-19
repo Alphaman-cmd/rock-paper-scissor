@@ -1,0 +1,104 @@
+body {
+  font-family: Arial, sans-serif;
+  background: #1e1e2f;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.game {
+  background: #2c2c44;
+  padding: 30px;
+  border-radius: 10px;
+  text-align: center;
+  width: 300px;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.5);
+  transform-origin: center;
+  transition: transform 300ms ease, box-shadow 300ms ease;
+}
+
+.buttons button {
+  margin: 10px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(135deg,#3b3b73,#5151b8);
+  color: #fff;
+  transition: transform 160ms ease, box-shadow 160ms ease, background 200ms ease;
+  box-shadow: 0 6px 14px rgba(80,80,160,0.18);
+}
+
+.buttons button:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 30px rgba(80,80,160,0.24);
+}
+
+.buttons button:active,
+.buttons button.pressed {
+  transform: translateY(0) scale(0.98);
+}
+
+.result {
+  margin-top: 20px;
+}
+
+/* Choice text styles */
+.result .choice {
+  display: inline-block;
+  min-width: 48px;
+  text-align: center;
+  transition: transform 240ms ease, color 240ms ease;
+}
+
+/* Animations */
+@keyframes pop {
+  0% { transform: scale(0.6); opacity: 0; }
+  60% { transform: scale(1.12); opacity: 1; }
+  100% { transform: scale(1); }
+}
+
+@keyframes shake {
+  0% { transform: translateX(0); }
+  20% { transform: translateX(-6px); }
+  40% { transform: translateX(6px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); box-shadow: 0 0 0 rgba(0,0,0,0); }
+  50% { transform: scale(1.06); box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+  100% { transform: scale(1); }
+}
+
+.choice.pop {
+  animation: pop 420ms cubic-bezier(.2,.9,.3,1);
+}
+
+.choice.shake {
+  animation: shake 600ms ease;
+}
+
+#winner {
+  transition: color 200ms ease, transform 200ms ease;
+}
+
+.winner-flash {
+  animation: pulse 900ms ease;
+}
+
+.win { color: #7bed9f; }
+.lose { color: #ff6b6b; }
+.draw { color: #ffd166; }
+
+/* small visual lift on play */
+.game.lift { transform: translateY(-6px) scale(1.01); box-shadow: 0 22px 60px rgba(0,0,0,0.45); }
+
+.result {
+  margin-top: 20px;
+}
